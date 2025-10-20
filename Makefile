@@ -14,26 +14,18 @@ ifeq ($(QUIET),1)
   VERBOSE_OPTS =
 endif
 
-OTAP_APPS ?= partition0 partition1
-OTAP_APPS := $(filter-out bootloader,$(OTAP_APPS))
-
-DIRS ?= bootloader ota partition0 partition1
+DIRS ?= app lib
 SRCS ?= $(foreach dir,$(DIRS),$(shell find $(dir) -name "*.[c|h]"))
 CLANG_FORMAT ?= clang-format
 CLANG_FORMAT_TYPE ?= file
 
-.PHONY: $(PROJECTS) $(OTAP_APPS) $(BOOTLOADER) docker docker-release format check-format
+.PHONY: upgate docker docker-release format check-format
 
-all: $(OTAP_APPS) $(BOOTLOADER)
+all: upgate
 
-$(OTAP_APPS):
-	@echo "\e[1mBuilding otap application $@\e[0m"
+upgate:
+	@echo "\e[1mBuilding project $@\e[0m"
 	"$(SEGGER_DIR)/bin/emBuild" $(PROJECT_FILE) -project $@ -config $(BUILD_CONFIG) $(PACKAGES_DIR_OPT) -rebuild $(VERBOSE_OPTS)
-	@echo "\e[1mDone\e[0m\n"
-
-$(BOOTLOADER):
-	@echo "\e[1mBuilding bootloader application $@\e[0m"
-	"$(SEGGER_DIR)/bin/emBuild" $(BUILD_TARGET)-bootloader.emProject -project $@ -config Release -rebuild $(PACKAGES_DIR_OPT) $(VERBOSE_OPTS)
 	@echo "\e[1mDone\e[0m\n"
 
 clean:

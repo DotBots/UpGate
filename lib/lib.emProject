@@ -1,0 +1,17 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="lib" target="8" version="2">
+  <configuration
+    Name="Common"
+    build_output_directory="Output/$(BuildTarget)/$(Configuration)/Obj"
+    build_output_file_name="$(OutDir)/$(ProjectName)-$(BuildTarget)$(LIB)"
+    c_user_include_directories="$(SolutionDir);$(SolutionDir)/../dotbot-libs/bsp;$(SolutionDir)/../dotbot-libs/drv;$(SolutionDir)/../dotbot-libs/crypto;$(PackagesDir)/nRF/Device/Include;$(PackagesDir)/CMSIS_5/CMSIS/Core/Include" />
+  <project Name="lib">
+    <configuration
+      Name="Common"
+      project_dependencies="00bsp_partition(bsp);00bsp_nvmc(bsp);00crypto_ed25519(crypto);00crypto_sha256(crypto);00drv_n25q128(drv);00drv_uzlib(drv);00drv_lz4(drv)"
+      project_directory="."
+      project_type="Library" />
+    <file file_name="upgate.c" />
+    <file file_name="upgate.h" />
+  </project>
+</solution>
