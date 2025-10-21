@@ -17,7 +17,13 @@ compressed (Gzip andn LZ4 compression methods available).
 
 ## Get the code
 
-TODO
+This repository uses [DotBot-libs](https://github.com/DotBots/DotBot-libs) as a
+[Git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+To clone the repository use the following command:
+
+```
+git clone --recurse-submodules https://github.com/DotBots/DotBot-firmware
+```
 
 ## Security
 
@@ -62,4 +68,14 @@ To install all the Python dependencies (pydotbot, cryptography, click and tqdm),
 
 ```
 pip install -r dist/scripts/upgate/requirements.txt
+```
+
+## Cite this work
+
+If you plan to reuse this work for a publication, consider citing it with:
+
+```
+UpGate: Low-Power and Secure Over-the-Air Hardware Reconfiguration for Deployed FPGAs
+Alexandre Abadie , Alfonso Cortes-Neira , Thomas Watteyne , Filip Maksimovic
+ICIN 2025 - 28th Conference on Innovation in Clouds, Internet and Networks, Mar 2025, Paris, France. pp.28-35, ⟨10.1109/ICIN64016.2025.10942953⟩
 ```
