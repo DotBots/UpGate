@@ -22,7 +22,7 @@ This repository uses [DotBot-libs](https://github.com/DotBots/DotBot-libs) as a
 To clone the repository use the following command:
 
 ```
-git clone --recurse-submodules https://github.com/DotBots/DotBot-firmware
+git clone --recurse-submodules https://github.com/DotBots/UpGate
 ```
 
 ## Security
